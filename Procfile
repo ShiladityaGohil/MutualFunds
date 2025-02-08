@@ -1,0 +1,1 @@
+web: gunicorn mutual_funds_enpoints:app

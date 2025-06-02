@@ -1,6 +1,8 @@
+import os
 from flask_apscheduler import APScheduler
 from app import create_app
 from cron import update_funds
+import config
 
 app = create_app()
 
@@ -20,4 +22,6 @@ scheduler.init_app(app)
 scheduler.start()
 
 if __name__ == '__main__':
-    app.run(debug=True, port=9000)
+    port = config.PORT
+    debug = config.DEBUG
+    app.run(debug=debug, port=port, host='0.0.0.0')

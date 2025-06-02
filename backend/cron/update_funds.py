@@ -6,6 +6,8 @@ import time
 import logging
 import threading
 import os
+from urllib.parse import urlparse
+import config
 
 # Ensure logs directory exists
 logs_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'logs')
@@ -22,18 +24,36 @@ logging.basicConfig(
 )
 logger = logging.getLogger("mutual_funds_updater")
 
-# Database configuration
-DB_CONFIG = {
-    "dbname": "postgres",
-    "user": "postgres",
-    "password": "postgres",
-    "host": "localhost",
-    "port": 5432
-}
+# Get database configuration from environment variables or config
+def get_db_config():
+    # If DATABASE_URL is provided (like on Render), parse it
+    if os.getenv('DATABASE_URL'):
+        db_url = os.getenv('DATABASE_URL')
+        # Handle Render's postgres:// format
+        if db_url.startswith("postgres://"):
+            db_url = db_url.replace("postgres://", "postgresql://", 1)
+            
+        url = urlparse(db_url)
+        return {
+            "dbname": url.path[1:],
+            "user": url.username,
+            "password": url.password,
+            "host": url.hostname,
+            "port": url.port or 5432
+        }
+    # Otherwise use individual environment variables
+    else:
+        return {
+            "dbname": os.getenv('DB_NAME', 'postgres'),
+            "user": os.getenv('DB_USER', 'postgres'),
+            "password": os.getenv('DB_PASSWORD', 'postgres'),
+            "host": os.getenv('DB_HOST', 'localhost'),
+            "port": int(os.getenv('DB_PORT', 5432))
+        }
 
-# API endpoints
-API_1_URL = "https://groww.in/v1/api/search/v3/query/global/st_p_query?entity_type=Scheme&page=0&size=10000"
-API_2_TEMPLATE = "https://groww.in/v1/api/data/mf/web/v4/scheme/search/{search_id}"
+# API endpoints from config
+API_1_URL = config.API_1_URL
+API_2_TEMPLATE = config.API_2_TEMPLATE
 
 def create_schema_and_table_if_not_exists(cursor):
     logger.info("Creating schema and table if they don't exist...")
@@ -109,7 +129,10 @@ def fetch_and_update(limit=None):
         progress_thread.start()
 
         search_ids = []
-
+        
+        # Get DB configuration
+        DB_CONFIG = get_db_config()
+        
         logger.info(f"Establishing database connection to {DB_CONFIG['host']}:{DB_CONFIG['port']}")
         with psycopg2.connect(**DB_CONFIG) as conn:
             conn.autocommit = True
@@ -117,24 +140,20 @@ def fetch_and_update(limit=None):
             
             with conn.cursor() as cur:
                 create_schema_and_table_if_not_exists(cur)
-
-                logger.info(f"Starting to process {len(funds)} funds...")
-                for i, item in enumerate(funds):
-                    if item.get("entity_type") != "Scheme":
+                
+                for fund in funds:
+                    fund_id = fund.get("id")
+                    search_id = fund.get("searchId")
+                    fund_title = fund.get("title")
+                    fund_expiry = fund.get("expiry")
+                    entity_type = fund.get("entityType")
+                    
+                    if not search_id:
+                        logger.warning(f"Skipping fund with no search_id: {fund_title}")
                         continue
-
-                    fund_id = item.get("id")
-                    search_id = item.get("search_id")
-                    fund_title = item.get("title")
-                    fund_expiry = item.get("expiry")
-                    entity_type = item.get("entity_type")
-
-                    if not (fund_id and search_id and fund_title):
-                        logger.warning(f"Skipping fund with incomplete data: {fund_id}")
-                        continue
-
+                        
                     search_ids.append(search_id)
-
+                    
                     # Fetch holdings from API 2
                     holdings_data = None
                     try:
@@ -152,23 +171,24 @@ def fetch_and_update(limit=None):
                     except Exception as e:
                         logger.error(f"Error fetching holdings for {search_id}: {e}")
                         # Continue with the next fund even if this one fails
-
-                    # Upsert into DB - updated to use basic_schema
-                    logger.debug(f"Upserting fund data for {fund_title}")
-                    cur.execute("""
-                        INSERT INTO basic_schema.mutual_funds_details (fund_id, search_id, fund_title, fund_expiry, entity_type, holdings_data)
-                        VALUES (%s, %s, %s, %s, %s, %s)
-                        ON CONFLICT (fund_id)
-                        DO UPDATE SET
-                            search_id = EXCLUDED.search_id,
-                            fund_title = EXCLUDED.fund_title,
-                            fund_expiry = EXCLUDED.fund_expiry,
-                            entity_type = EXCLUDED.entity_type,
-                            holdings_data = EXCLUDED.holdings_data
-                        WHERE basic_schema.mutual_funds_details.holdings_data::text IS DISTINCT FROM EXCLUDED.holdings_data::text;
-                    """, (
-                        fund_id, search_id, fund_title, fund_expiry, entity_type, Json(holdings_data)
-                    ))
+                    
+                    # Insert or update the fund in the database
+                    try:
+                        cur.execute("""
+                            INSERT INTO basic_schema.mutual_funds_details 
+                            (fund_id, search_id, fund_title, fund_expiry, entity_type, holdings_data)
+                            VALUES (%s, %s, %s, %s, %s, %s)
+                            ON CONFLICT (fund_id) 
+                            DO UPDATE SET 
+                                search_id = EXCLUDED.search_id,
+                                fund_title = EXCLUDED.fund_title,
+                                fund_expiry = EXCLUDED.fund_expiry,
+                                entity_type = EXCLUDED.entity_type,
+                                holdings_data = EXCLUDED.holdings_data
+                        """, (fund_id, search_id, fund_title, fund_expiry, entity_type, Json(holdings_data) if holdings_data else None))
+                    except Exception as e:
+                        logger.error(f"Error inserting/updating fund {fund_id}: {e}")
+                        continue
 
                     processed_count.increment()
                     
@@ -203,3 +223,8 @@ def fetch_and_update(limit=None):
         logger.error(f"❌ Error in fetch_and_update: {e}", exc_info=True)
         print(f"❌ Error: {e}")
         logger.info("=== MUTUAL FUNDS UPDATE JOB FAILED ===")
+
+if __name__ == "__main__":
+    # If run directly, can specify a limit as a command-line argument
+    limit = int(sys.argv[1]) if len(sys.argv) > 1 else None
+    fetch_and_update(limit)

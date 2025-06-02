@@ -1,0 +1,72 @@
+.compare-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 990px;
+    padding: 0 0.72rem;
+  }
+  
+  .page-title {
+    margin: 0 0 0.72rem 0;
+    color: #343a40;
+    font-size: 1.62rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.45px;
+    text-align: center;
+  }
+  
+  .page-description {
+    margin: 0 0 1.35rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    max-width: 585px;
+    line-height: 1.45;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 1.35rem;
+    }
+    
+    .page-description {
+      font-size: 0.855rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .compare-page {
+      padding: 0 0.54rem;
+    }
+    
+    .page-title {
+      font-size: 1.26rem;
+    }
+    
+    .page-description {
+      font-size: 0.81rem;
+      margin-bottom: 1.08rem;
+    }
+  }
+  
+  /* Mobile-specific touch improvements */
+  @media (pointer: coarse) {
+    .compare-page {
+      padding-bottom: 1.8rem; /* Extra padding at bottom for mobile */
+    }
+  }
+  
+  /* Ensure content doesn't overflow on small screens */
+  @media (max-width: 320px) {
+    .page-title {
+      font-size: 1.17rem;
+    }
+    
+    .page-description {
+      font-size: 0.765rem;
+    }
+  }

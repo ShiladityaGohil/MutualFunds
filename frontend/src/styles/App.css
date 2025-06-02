@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.main-content {
+  flex: 1;
+  margin-top: 45px;
+  margin-bottom: 36px;
+  overflow-y: auto;
+  padding: 1.35rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+/* Improved responsive styles */
+@media (max-width: 992px) {
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 0.8rem;
+    margin-top: 40px;
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-content {
+    padding: 0.675rem;
+    margin-top: 36px;
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 400px) {
+  .main-content {
+    padding: 0.5rem;
+    margin-top: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Mobile-specific styles */
+@media (hover: none) {
+  /* Disable hover effects on mobile devices */
+  .feature-card:hover,
+  .animation-card:hover,
+  .info-card:hover,
+  .feature-btn:hover,
+  .view-holdings-btn:hover,
+  .try-again-btn:hover,
+  .compare-btn:hover,
+  .new-comparison-btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Add active state for touch devices */
+  .feature-card:active,
+  .animation-card:active,
+  .info-card:active {
+    background-color: #f8f9fa;
+  }
+  
+  .feature-btn:active,
+  .view-holdings-btn:active,
+  .try-again-btn:active,
+  .compare-btn:active,
+  .new-comparison-btn:active {
+    opacity: 0.8;
+  }
+}

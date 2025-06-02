@@ -1,0 +1,374 @@
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 990px;
+    padding: 1.35rem 0.9rem;
+    min-height: 70vh;
+    justify-content: center;
+  }
+  
+  .intro-animation {
+    text-align: center;
+    width: 100%;
+  }
+  
+  .intro-animation h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.98rem;
+    color: #6c5ce7;
+    margin-bottom: 2.25rem;
+    letter-spacing: 0.45px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .animation-cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.35rem;
+    width: 100%;
+    margin-top: 1.35rem;
+  }
+  
+  .animation-card {
+    flex: 1;
+    max-width: 360px;
+    background-color: white;
+    border-radius: 10.8px;
+    padding: 1.8rem;
+    box-shadow: 0 9px 27px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+  
+  .animation-card:hover {
+    transform: translateY(-4.5px);
+    box-shadow: 0 13.5px 36px rgba(0, 0, 0, 0.15);
+  }
+  
+  .animation-card h2 {
+    margin: 0 0 0.9rem 0;
+    color: #343a40;
+    font-size: 1.44rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  .animation-card p {
+    color: #6c757d;
+    margin-bottom: 1.8rem;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .welcome-section {
+    text-align: center;
+    margin-bottom: 2.7rem;
+    width: 100%;
+  }
+  
+  .welcome-section h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.16rem;
+    color: #6c5ce7;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.45px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .welcome-section p {
+    color: #6c757d;
+    margin-bottom: 1.8rem;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.08rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .features-section {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    width: 100%;
+    margin-top: 1.8rem;
+  }
+  
+  .feature-card {
+    flex: 1;
+    max-width: 360px;
+    background-color: white;
+    border-radius: 10.8px;
+    padding: 1.8rem;
+    box-shadow: 0 9px 27px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4.5px);
+    box-shadow: 0 13.5px 36px rgba(0, 0, 0, 0.15);
+  }
+  
+  .feature-icon {
+    font-size: 2.7rem;
+    color: #6c5ce7;
+    margin-bottom: 1.35rem;
+  }
+  
+  .feature-card h2 {
+    margin: 0 0 0.9rem 0;
+    color: #343a40;
+    font-size: 1.44rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  .feature-card p {
+    color: #6c757d;
+    margin-bottom: 1.8rem;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .feature-btn {
+    display: inline-block;
+    padding: 0.72rem 1.35rem;
+    background: linear-gradient(to right, #a56bff, #bb86fc);
+    color: white;
+    text-decoration: none;
+    border-radius: 6.3px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.27px;
+    box-shadow: 0 4.5px 9px rgba(165, 107, 255, 0.2);
+  }
+  
+  .feature-btn:hover {
+    transform: translateY(-2.25px);
+    box-shadow: 0 3.6px 7.2px rgba(108, 92, 231, 0.3);
+  }
+  
+  /* Improved responsive styles */
+  @media (max-width: 992px) {
+    .animation-cards,
+    .features-section {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    
+    .animation-card,
+    .feature-card {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+    }
+    
+    .welcome-section h1,
+    .intro-animation h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .welcome-section p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    .feature-card h2 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home-page {
+      padding: 1rem 0.8rem;
+    }
+    
+    .welcome-section h1,
+    .intro-animation h1 {
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    .welcome-section p {
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    .feature-card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+    
+    .feature-card p {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-btn {
+      padding: 0.6rem 1.1rem;
+      font-size: 0.9rem;
+    }
+    
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .animation-card,
+    .feature-card {
+      padding: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .home-page {
+      padding: 0.8rem 0.6rem;
+    }
+    
+    .welcome-section h1,
+    .intro-animation h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    
+    .welcome-section p {
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    
+    .feature-card h2 {
+      font-size: 1.1rem;
+    }
+    
+    .feature-card p {
+      font-size: 0.8rem;
+      margin-bottom: 1.2rem;
+    }
+    
+    .feature-btn {
+      padding: 0.54rem 0.9rem;
+      font-size: 0.8rem;
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .animation-card,
+    .feature-card {
+      padding: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .home-page {
+      padding: 0.6rem 0.5rem;
+    }
+    
+    .welcome-section h1,
+    .intro-animation h1 {
+      font-size: 1.3rem;
+    }
+    
+    .welcome-section p {
+      font-size: 0.8rem;
+    }
+    
+    .feature-card h2 {
+      font-size: 1rem;
+    }
+    
+    .feature-card p {
+      font-size: 0.75rem;
+    }
+    
+    .feature-btn {
+      padding: 0.5rem 0.8rem;
+      font-size: 0.75rem;
+    }
+    
+    .feature-icon {
+      font-size: 1.8rem;
+    }
+    
+    .animation-card,
+    .feature-card {
+      padding: 1rem;
+    }
+  }
+  
+  .home-page {
+    padding-bottom: 2.25rem;
+  }
+  
+  /* Mobile-specific touch improvements */
+  @media (pointer: coarse) {
+    .feature-btn {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .feature-card, 
+    .animation-card {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .feature-card:active, 
+    .animation-card:active {
+      background-color: #f8f9fa;
+    }
+    
+    .feature-btn:active {
+      opacity: 0.9;
+      transform: translateY(1px);
+    }
+  }
+  
+  /* Ensure content doesn't overflow on small screens */
+  @media (max-width: 320px) {
+    .home-page {
+      padding: 0.5rem 0.4rem;
+    }
+    
+    .welcome-section h1,
+    .intro-animation h1 {
+      font-size: 1.2rem;
+    }
+    
+    .welcome-section p {
+      font-size: 0.75rem;
+    }
+    
+    .feature-card h2 {
+      font-size: 0.95rem;
+    }
+    
+    .feature-card p {
+      font-size: 0.7rem;
+    }
+    
+    .feature-btn {
+      padding: 0.45rem 0.7rem;
+      font-size: 0.7rem;
+    }
+  }

@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.comparison-results {
+  margin-top: 1.215rem;
+  width: 100%;
+  background-color: transparent;
+  border-radius: 8.1px; 
+  overflow: hidden;
+  max-width: 100%;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: none;
+  border: none;
+}
+
+.comparison-header {
+  padding: 1.62rem 1.215rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border-bottom: none;
+}
+
+.comparison-title {
+  margin: 0 0 1.215rem 0;
+  color: #343a40;
+  font-size: 1.782rem;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.405px;
+  width: 100%;
+  display: block;
+  padding: 0.405rem 0;
+  text-shadow: 0 0.81px 1.62px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 5;
+}
+
+.funds-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.81rem;
+}
+
+.fund-card {
+  flex: 1;
+  background-color: white;
+  border-radius: 6.48px;
+  padding: 1.215rem;
+  box-shadow: 0 3.24px 4.86px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 180px;
+  justify-content: center;
+}
+
+.fund-card h3 {
+  margin: 0 0 0.81rem 0;
+  font-size: 0.972rem;
+  color: #495057;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.243px;
+}
+
+.fund-name {
+  font-size: 1.134rem;
+  color: #343a40;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  letter-spacing: 0.243px;
+  line-height: 1.4;
+}
+
+.holdings-badge {
+  background: linear-gradient(135deg, #6c5ce7, #a56bff);
+  border-radius: 6.3px;
+  padding: 0.72rem 1.08rem;
+  text-align: center;
+  box-shadow: 0 3.6px 9px rgba(108, 92, 231, 0.3);
+  margin-top: 0.81rem;
+}
+
+.holdings-badge span {
+  font-size: 1.62rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1;
+}
+
+.holdings-badge p {
+  margin: 0.27rem 0 0 0;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Poppins', sans-serif;
+}
+
+.common-holdings-badge {
+  background: linear-gradient(135deg, #40e0d0, #00c2c2);
+  color: black;
+  border-radius: 50%;
+  width: 121.5px;
+  height: 121.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.81rem;
+  padding: 8.1px;
+  box-shadow: 0 8.1px 16.2px rgba(0, 194, 194, 0.25);
+  position: relative;
+  z-index: 10;
+}
+
+.common-holdings-badge span {
+  font-size: 2.43rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.405rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.common-holdings-badge p {
+  font-size: 0.729rem;
+  margin: 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.162px;
+  line-height: 1.2;
+}
+
+.comparison-body {
+  padding: 0;
+  background-color: white;
+  border-radius: 6.48px;
+  box-shadow: 0 3.24px 8.1px rgba(0, 0, 0, 0.05);
+  margin-top: 1.62rem;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
+.table-header {
+  display: flex;
+  background: linear-gradient(to right, #a56bff, #6c5ce7);
+  color: white;
+  font-weight: 600;
+  font-size: 0.81rem;
+  letter-spacing: 0.162px;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.table-row {
+  display: flex;
+  border-bottom: 1px solid #e9ecef;
+  font-size: 0.81rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.2s ease;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row:hover {
+  background-color: #f8f9fa;
+}
+
+.th, .td {
+  padding: 0.81rem 0.405rem;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+}
+
+.company-name {
+  flex: 1;
+}
+
+.fund1-weight, .fund2-weight {
+  flex: 1;
+}
+
+.sector {
+  flex: 1;
+}
+
+.positive {
+  color: #40c057;
+  font-weight: 500;
+}
+
+.negative {
+  color: #fa5252;
+  font-weight: 500;
+}
+
+.no-holdings-message {
+  padding: 2.43rem;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.891rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.actions {
+  padding: 1.215rem;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+}
+
+.new-comparison-btn {
+  padding: 0.729rem 1.215rem;
+  background: linear-gradient(to right, #a56bff, #6c5ce7);
+  color: white;
+  border: none;
+  border-radius: 4.05px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.891rem;
+  letter-spacing: 0.162px;
+  box-shadow: 0 2.43px 4.86px rgba(108, 92, 231, 0.2);
+}
+
+.new-comparison-btn:hover {
+  transform: translateY(-2.43px);
+  box-shadow: 0 4.86px 8.1px rgba(108, 92, 231, 0.25);
+}
+
+@media (max-width: 768px) {
+  .comparison-title {
+    font-size: 1.296rem;
+    margin-bottom: 0.81rem;
+  }
+  
+  .funds-cards {
+    flex-direction: column;
+  }
+  
+  .fund-card {
+    width: 100%;
+    margin-bottom: 0.81rem;
+    min-height: auto;
+    padding: 0.972rem;
+  }
+  
+  .common-holdings-badge {
+    margin: 0.81rem 0;
+    width: 97.2px;
+    height: 97.2px;
+    padding: 4.05px;
+  }
+  
+  .common-holdings-badge span {
+    font-size: 1.62rem;
+  }
+  
+  .table-header, .table-row {
+    font-size: 0.729rem;
+  }
+  
+  .th, .td {
+    padding: 0.648rem 0.405rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .comparison-title {
+    font-size: 1.134rem;
+  }
+  
+  .fund-card {
+    padding: 0.972rem;
+  }
+  
+  .fund-card h3 {
+    font-size: 0.81rem;
+    margin-bottom: 0.567rem;
+  }
+  
+  .fund-name {
+    font-size: 0.972rem;
+  }
+  
+  .common-holdings-badge {
+    width: 81px;
+    height: 81px;
+  }
+  
+  .common-holdings-badge span {
+    font-size: 1.35rem;
+  }
+  
+  .common-holdings-badge p {
+    font-size: 0.648rem;
+  }
+  
+  .table-header, .table-row {
+    font-size: 0.648rem;
+  }
+  
+  .th, .td {
+    padding: 0.567rem 0.324rem;
+  }
+  
+  .new-comparison-btn {
+    padding: 0.648rem 0.972rem;
+    font-size: 0.81rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .comparison-header {
+    padding: 1.215rem 0.81rem;
+  }
+  
+  .comparison-title {
+    font-size: 1.053rem;
+  }
+  
+  .fund-card {
+    padding: 0.81rem;
+  }
+  
+  .fund-card h3 {
+    font-size: 0.729rem;
+  }
+  
+  .fund-name {
+    font-size: 0.891rem;
+  }
+  
+  .table-header, .table-row {
+    font-size: 0.567rem;
+  }
+  
+  .th, .td {
+    padding: 0.486rem 0.243rem;
+  }
+  
+  .new-comparison-btn {
+    padding: 0.567rem 0.81rem;
+    font-size: 0.729rem;
+  }
+}
+
+/* Mobile-specific touch improvements */
+@media (pointer: coarse) {
+  .new-comparison-btn {
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .new-comparison-btn:active {
+    opacity: 0.9;
+    transform: translateY(1px);
+  }
+  
+  .new-comparison-btn:hover {
+    transform: none;
+    box-shadow: 0 2.43px 4.86px rgba(108, 92, 231, 0.2);
+  }
+  
+  .table-row:hover {
+    background-color: transparent;
+  }
+  
+  .table-row:active {
+    background-color: #f8f9fa;
+  }
+}

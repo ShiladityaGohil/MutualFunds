@@ -5,8 +5,8 @@
  * When deploying to different environments, only this file needs to be updated.
  */
 
-// Base API URL - change this when deploying to production
-const API_BASE_URL = 'http://127.0.0.1:9000/api/v1';
+// Base API URL - Uses environment variable if available, otherwise falls back to local development URL
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9000/api/v1';
 
 // API endpoints
 const API_ENDPOINTS = {

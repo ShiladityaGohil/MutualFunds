@@ -4,7 +4,7 @@ services:
     name: mutual-funds-api
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn run:app -b 0.0.0.0:$PORT
+    startCommand: cd backend && PYTHONPATH=$PYTHONPATH:. gunicorn run:app -b 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0
@@ -20,6 +20,16 @@ services:
         fromDatabase:
           name: mutual-funds-db
           property: connectionString
+
+  # Frontend service
+  - type: web
+    name: mutual-funds-frontend
+    env: node
+    buildCommand: cd frontend && npm install && npm run build
+    startCommand: cd frontend && npm run preview -- --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
 
 databases:
   - name: mutual-funds-db

@@ -13,7 +13,7 @@ app.config.from_object(Config())
 
 scheduler = APScheduler()
 
-@scheduler.task('cron', id='update_funds_job', hour=17, minute=50)
+@scheduler.task('cron', id='update_funds_job', hour=16, minute=45)
 def scheduled_task():
     print("Running update_funds...")
     update_funds.fetch_and_update(limit=None)

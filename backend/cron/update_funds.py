@@ -143,10 +143,10 @@ def fetch_and_update(limit=None):
                 
                 for fund in funds:
                     fund_id = fund.get("id")
-                    search_id = fund.get("searchId")
+                    search_id = fund.get("search_id")
                     fund_title = fund.get("title")
                     fund_expiry = fund.get("expiry")
-                    entity_type = fund.get("entityType")
+                    entity_type = fund.get("entity_type")
                     
                     if not search_id:
                         logger.warning(f"Skipping fund with no search_id: {fund_title}")
@@ -210,18 +210,18 @@ def fetch_and_update(limit=None):
         end_time = time.time()
         duration = round(end_time - start_time, 2)
         
-        logger.info(f"✅ Updated {updated_count.value}/{len(funds)} mutual fund records in basic_schema.")
-        logger.info(f"⏱️ Execution time: {duration} seconds")
+        logger.info(f"Updated {updated_count.value}/{len(funds)} mutual fund records in basic_schema.")
+        logger.info(f"Execution time: {duration} seconds")
         logger.info(f"Total search IDs processed: {len(search_ids)}")
         logger.info("=== MUTUAL FUNDS UPDATE JOB COMPLETED SUCCESSFULLY ===")
 
-        print(f"✅ Updated {updated_count.value}/{len(funds)} mutual fund records in basic_schema.")
-        print(f"⏱️ Execution time: {duration} seconds")
+        print(f"Updated {updated_count.value}/{len(funds)} mutual fund records in basic_schema.")
+        print(f"Execution time: {duration} seconds")
         print(f"Total search IDs processed: {len(search_ids)}")
 
     except Exception as e:
-        logger.error(f"❌ Error in fetch_and_update: {e}", exc_info=True)
-        print(f"❌ Error: {e}")
+        logger.error(f"Error in fetch_and_update: {e}", exc_info=True)
+        print(f"Error: {e}")
         logger.info("=== MUTUAL FUNDS UPDATE JOB FAILED ===")
 
 if __name__ == "__main__":

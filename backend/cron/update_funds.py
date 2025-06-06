@@ -82,6 +82,16 @@ def periodic_progress_logger(stop_event, processed_count, updated_count, total_c
         logger.info(f"PROGRESS UPDATE: {processed_count.value}/{total_count} funds processed, {updated_count.value} updated")
         time.sleep(10)  # Log every 10 seconds
 
+def ping_server():
+    try:
+        response = requests.get(os.getenv('BASE_URL', 'http://localhost:9000') + "/api/v1/mutual-funds/search?title=icici")
+        if response.status_code == 200:
+            logger.info("Server is up and running")
+        else:
+            logger.warning(f"Server is not responding. Status code: {response.status_code}")
+    except requests.RequestException as e:
+        logger.error(f"Error pinging server: {e}")
+    
 def fetch_and_update(limit=None):
     logger.info("=== STARTING MUTUAL FUNDS UPDATE JOB ===")
     start_time = time.time()

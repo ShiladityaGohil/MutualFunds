@@ -18,7 +18,7 @@ def scheduled_task_ping():
     print("Pinging server...")
     update_funds.ping_server()
 
-@scheduler.task('cron', id='update_funds_job', hour='1',minute='45')
+@scheduler.task('cron', id='update_funds_job', hour='13',minute='50')
 def scheduled_task():
     print("Running update_funds...")
     update_funds.fetch_and_update(limit=None)

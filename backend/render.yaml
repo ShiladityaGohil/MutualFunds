@@ -30,6 +30,10 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 18.x
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
 
 databases:
   - name: mutual-funds-db

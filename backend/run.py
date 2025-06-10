@@ -3,8 +3,11 @@ from flask_apscheduler import APScheduler
 from app import create_app
 from cron import update_funds
 import config
+from flask_cors import CORS
 
 app = create_app()
+
+CORS(app)  # Enable CORS for all routes and origins
 
 class Config:
     SCHEDULER_API_ENABLED = True

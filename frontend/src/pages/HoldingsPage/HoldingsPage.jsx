@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { API_ENDPOINTS, apiClient } from '../../config/apiConfig';
 import './HoldingsPage.css';
 
 const HoldingsPage = () => {
@@ -30,38 +31,34 @@ const HoldingsPage = () => {
     }
   };
   
-  const debouncedFetchSuggestions = useCallback((query) => {
-    if (query.trim().length < 1) return;
-    
-    setSearchLoading(true);
-    
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`http://127.0.0.1:9000/api/v1/mutual-funds/search?title=${encodeURIComponent(query)}`);
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch suggestions');
-        }
-        
-        const data = await response.json();
-        
-        if (data.total_records > 0) {
-          setSuggestions(data.data);
-          setShowSuggestions(true);
-        } else {
-          setSuggestions([]);
-          setShowSuggestions(false);
-        }
-      } catch (error) {
-        console.error('Error fetching suggestions:', error);
+
+const debouncedFetchSuggestions = useCallback((query) => {
+  if (query.trim().length < 1) return;
+  
+  setSearchLoading(true);
+  
+  const fetchData = async () => {
+    try {
+      // Use the apiClient instead of direct fetch
+      const data = await apiClient.get(API_ENDPOINTS.SEARCH_FUNDS, { title: query });
+      
+      if (data.total_records > 0) {
+        setSuggestions(data.data);
+        setShowSuggestions(true);
+      } else {
         setSuggestions([]);
-      } finally {
-        setSearchLoading(false);
+        setShowSuggestions(false);
       }
-    };
-    
-    fetchData();
-  }, []);
+    } catch (error) {
+      console.error('Error fetching suggestions:', error);
+      setSuggestions([]);
+    } finally {
+      setSearchLoading(false);
+    }
+  };
+  
+  fetchData();
+}, []);
   
   // Apply debouncing to search
   useEffect(() => {

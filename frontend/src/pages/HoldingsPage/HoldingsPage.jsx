@@ -154,13 +154,8 @@ const debouncedFetchSuggestions = useCallback((query) => {
     setHoldings(null);
     
     try {
-      const response = await fetch(`http://127.0.0.1:9000/api/v1/mutual-funds/${selectedFund.search_id}/holdings`);
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch holdings data');
-      }
-      
-      const data = await response.json();
+      // Use the apiClient and API_ENDPOINTS instead of hardcoded URL
+      const data = await apiClient.get(API_ENDPOINTS.GET_FUND_HOLDINGS(selectedFund.search_id));
       
       if (!data || !data.holdings_data || data.holdings_data.length === 0) {
         setDataError('No holdings data found for this fund');

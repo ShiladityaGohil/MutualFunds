@@ -154,7 +154,6 @@
   font-size: 0.81rem;
   letter-spacing: 0.162px;
   font-family: 'Poppins', sans-serif;
-
 }
 
 .table-row {
@@ -245,6 +244,7 @@
   
   .funds-cards {
     flex-direction: column;
+    align-items: center;
   }
   
   .fund-card {
@@ -255,7 +255,7 @@
   }
   
   .common-holdings-badge {
-    margin: 0.81rem 0;
+    margin: 1.5rem auto;
     width: 97.2px;
     height: 97.2px;
     padding: 4.05px;
@@ -295,6 +295,7 @@
   .common-holdings-badge {
     width: 81px;
     height: 81px;
+    margin: 1.2rem auto;
   }
   
   .common-holdings-badge span {
@@ -378,4 +379,27 @@
   .table-row:active {
     background-color: #f8f9fa;
   }
+}
+
+/* Ensure the table is properly centered on mobile */
+.comparison-table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Center the new comparison button */
+.new-comparison-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+/* Holdings table container */
+.holdings-table-container {
+  margin-top: 1.5rem;
+  background-color: white;
+  border-radius: 6.48px;
+  overflow: hidden;
+  box-shadow: 0 3.24px 8.1px rgba(0, 0, 0, 0.05);
 }

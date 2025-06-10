@@ -8,6 +8,9 @@
 // Base API URL - Uses environment variable if available, otherwise falls back to local development URL
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:9000/api/v1';
 
+// Log the API base URL during initialization (will help with debugging)
+console.log('API Base URL:', API_BASE_URL);
+
 // API endpoints
 const API_ENDPOINTS = {
   // Mutual Funds
@@ -47,10 +50,15 @@ const apiClient = {
    */
   async get(url, params = {}) {
     try {
-      const response = await fetch(buildUrl(url, params));
+      const fullUrl = buildUrl(url, params);
+      console.log(`API GET request to: ${fullUrl}`);
+      
+      const response = await fetch(fullUrl);
       
       if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
+        const errorText = await response.text();
+        console.error(`API error (${response.status}):`, errorText);
+        throw new Error(`API error: ${response.status} - ${errorText}`);
       }
       
       return await response.json();
@@ -68,6 +76,8 @@ const apiClient = {
    */
   async post(url, data = {}) {
     try {
+      console.log(`API POST request to: ${url}`, data);
+      
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -77,7 +87,9 @@ const apiClient = {
       });
       
       if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
+        const errorText = await response.text();
+        console.error(`API error (${response.status}):`, errorText);
+        throw new Error(`API error: ${response.status} - ${errorText}`);
       }
       
       return await response.json();

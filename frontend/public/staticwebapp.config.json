@@ -2,5 +2,22 @@
     "navigationFallback": {
       "rewrite": "/index.html",
       "exclude": ["/images/*.{png,jpg,gif}", "/css/*", "/js/*", "/api/*"]
-    }
+    },
+    "routes": [
+      {
+        "route": "/holdings",
+        "serve": "/index.html",
+        "statusCode": 200
+      },
+      {
+        "route": "/compare",
+        "serve": "/index.html",
+        "statusCode": 200
+      },
+      {
+        "route": "/*",
+        "serve": "/index.html",
+        "statusCode": 200
+      }
+    ]
   }

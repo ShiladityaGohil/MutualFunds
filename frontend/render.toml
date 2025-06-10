@@ -1,0 +1,6 @@
+[routes]
+  # Serve index.html for all routes
+  [routes.main]
+    path = "/*"
+    dest = "/index.html"
+    status = 200

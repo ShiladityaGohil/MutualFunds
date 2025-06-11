@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Navigation from './components/Navigation/Navigation';
@@ -19,6 +19,8 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/holdings" element={<HoldingsPage />} />
             <Route path="/compare" element={<ComparePage />} />
+            {/* ✅ Catch-all route: redirect invalid URLs to homepage */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer />

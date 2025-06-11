@@ -16,8 +16,9 @@
       },
       {
         "route": "/*",
-        "serve": "/index.html",
-        "statusCode": 200
+        "redirect": "/",
+        "statusCode": 301
       }
     ]
   }
+  

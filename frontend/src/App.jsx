@@ -19,7 +19,6 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/holdings" element={<HoldingsPage />} />
             <Route path="/compare" element={<ComparePage />} />
-            {/* ✅ Catch-all route: redirect invalid URLs to homepage */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

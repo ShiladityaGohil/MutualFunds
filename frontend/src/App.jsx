@@ -6,6 +6,9 @@ import Navigation from './components/Navigation/Navigation';
 import HomePage from './pages/HomePage/HomePage';
 import HoldingsPage from './pages/HoldingsPage/HoldingsPage';
 import ComparePage from './pages/ComparePage/ComparePage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import ContactPage from './pages/ContactPage/ContactPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage/PrivacyPolicyPage';
 import './styles/App.css';
 
 const App = () => {
@@ -19,6 +22,9 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/holdings" element={<HoldingsPage />} />
             <Route path="/compare" element={<ComparePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

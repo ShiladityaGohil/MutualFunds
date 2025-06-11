@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaHome, FaListAlt, FaExchangeAlt } from 'react-icons/fa';
+import { FaHome, FaListAlt, FaExchangeAlt, FaInfoCircle, FaEnvelope } from 'react-icons/fa';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -20,6 +20,16 @@ const Navigation = () => {
         <NavLink to="/compare" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <FaExchangeAlt className="nav-icon" />
           <span className="nav-text">Compare Holdings</span>
+        </NavLink>
+        
+        <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+          <FaInfoCircle className="nav-icon" />
+          <span className="nav-text">About</span>
+        </NavLink>
+        
+        <NavLink to="/contact" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+          <FaEnvelope className="nav-icon" />
+          <span className="nav-text">Contact</span>
         </NavLink>
       </div>
     </nav>

@@ -1,0 +1,285 @@
+.privacy-policy-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 990px;
+    padding: 0 0.72rem;
+    margin: 0 auto;
+  }
+  
+  .privacy-container {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    width: 100%;
+  }
+  
+  .privacy-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .privacy-icon {
+    font-size: 2rem;
+    color: #6c5ce7;
+    margin-bottom: 0.8rem;
+  }
+  
+  .privacy-header h1 {
+    color: #2c3e50;
+    font-size: 1.62rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.45px;
+  }
+  
+  .last-updated {
+    color: #6c757d;
+    font-size: 0.85rem;
+    font-style: italic;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .privacy-content {
+    color: #495057;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .policy-section {
+    margin-bottom: 2rem;
+  }
+  
+  .policy-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .policy-section h2 {
+    color: #3498db;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  .policy-section h3 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    margin: 1.2rem 0 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+  .policy-section p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .policy-section ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+  
+  .policy-section li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .privacy-container {
+      padding: 1.5rem;
+    }
+    
+    .privacy-header {
+      margin-bottom: 1.8rem;
+      padding-bottom: 1rem;
+    }
+    
+    .privacy-header h1 {
+      font-size: 1.35rem;
+    }
+    
+    .privacy-icon {
+      font-size: 1.8rem;
+    }
+    
+    .last-updated {
+      font-size: 0.81rem;
+    }
+    
+    .policy-section h2 {
+      font-size: 1.25rem;
+    }
+    
+    .policy-section h3 {
+      font-size: 1rem;
+    }
+    
+    .policy-section p,
+    .policy-section li {
+      font-size: 0.855rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .privacy-policy-page {
+      padding: 0 0.54rem;
+    }
+    
+    .privacy-container {
+      padding: 1.2rem;
+      border-radius: 8px;
+    }
+    
+    .privacy-header {
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.9rem;
+    }
+    
+    .privacy-header h1 {
+      font-size: 1.26rem;
+    }
+    
+    .privacy-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+    
+    .last-updated {
+      font-size: 0.765rem;
+    }
+    
+    .policy-section {
+      margin-bottom: 1.8rem;
+    }
+    
+    .policy-section h2 {
+      font-size: 1.17rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .policy-section h3 {
+      font-size: 0.95rem;
+      margin: 1rem 0 0.6rem;
+    }
+    
+    .policy-section p, 
+    .policy-section li {
+      font-size: 0.81rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .privacy-policy-page {
+      padding: 0 0.5rem;
+    }
+    
+    .privacy-container {
+      padding: 1rem;
+    }
+    
+    .privacy-header h1 {
+      font-size: 1.17rem;
+    }
+    
+    .privacy-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .last-updated {
+      font-size: 0.72rem;
+    }
+    
+    .policy-section {
+      margin-bottom: 1.5rem;
+    }
+    
+    .policy-section h2 {
+      font-size: 1.08rem;
+      margin-bottom: 0.7rem;
+    }
+    
+    .policy-section h3 {
+      font-size: 0.9rem;
+      margin: 0.9rem 0 0.5rem;
+    }
+    
+    .policy-section p, 
+    .policy-section li {
+      font-size: 0.765rem;
+    }
+  }
+  
+  /* Mobile-specific touch improvements */
+  @media (pointer: coarse) {
+    .privacy-policy-page {
+      padding-bottom: 1.8rem; /* Extra padding at bottom for mobile */
+    }
+  }
+  
+  /* Ensure content doesn't overflow on small screens */
+  @media (max-width: 320px) {
+    .privacy-header h1 {
+      font-size: 1.08rem;
+    }
+    
+    .privacy-icon {
+      font-size: 1.3rem;
+    }
+    
+    .last-updated {
+      font-size: 0.675rem;
+    }
+    
+    .policy-section h2 {
+      font-size: 1rem;
+    }
+    
+    .policy-section h3 {
+      font-size: 0.85rem;
+    }
+    
+    .policy-section p, 
+    .policy-section li {
+      font-size: 0.72rem;
+    }
+  }
+  
+  /* Print styles for better printing */
+  @media print {
+    .privacy-policy-page {
+      padding: 0;
+    }
+    
+    .privacy-container {
+      box-shadow: none;
+      padding: 0;
+    }
+    
+    .privacy-header {
+      margin-bottom: 1.5rem;
+    }
+    
+    .privacy-content {
+      font-size: 11pt;
+    }
+    
+    .policy-section h2 {
+      font-size: 14pt;
+    }
+    
+    .policy-section h3 {
+      font-size: 12pt;
+    }
+  }

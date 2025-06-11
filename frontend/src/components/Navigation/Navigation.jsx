@@ -7,7 +7,7 @@ const Navigation = () => {
   return (
     <nav className="navigation">
       <div className="nav-container">
-        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'} end>
           <FaHome className="nav-icon" />
           <span className="nav-text">Home</span>
         </NavLink>

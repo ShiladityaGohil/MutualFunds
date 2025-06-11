@@ -4,7 +4,9 @@ import './Header.css';
 const Header = () => {
   return (
     <header className="header">
-      Fund Compass
+      <div className="header-content">
+        Fund Compass
+      </div>
     </header>
   );
 };

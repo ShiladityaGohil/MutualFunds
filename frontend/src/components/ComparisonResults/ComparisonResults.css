@@ -50,12 +50,11 @@
   border-radius: 6.48px;
   padding: 1.215rem;
   box-shadow: 0 3.24px 4.86px rgba(0, 0, 0, 0.05);
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 180px;
-  justify-content: center;
+  text-align: center;
 }
 
 .fund-card h3 {
@@ -65,6 +64,8 @@
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.243px;
+  text-align: center;
+  width: 100%;
 }
 
 .fund-name {
@@ -75,15 +76,22 @@
   margin: 0;
   letter-spacing: 0.243px;
   line-height: 1.4;
+  text-align: center;
+  width: 100%;
 }
 
 .holdings-badge {
   background: linear-gradient(135deg, #6c5ce7, #a56bff);
   border-radius: 6.3px;
   padding: 0.72rem 1.08rem;
-  text-align: center;
   box-shadow: 0 3.6px 9px rgba(108, 92, 231, 0.3);
-  margin-top: 0.81rem;
+  margin: 0.81rem auto 0;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .holdings-badge span {
@@ -92,6 +100,9 @@
   color: white;
   font-family: 'Poppins', sans-serif;
   line-height: 1;
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 .holdings-badge p {
@@ -99,6 +110,8 @@
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.9);
   font-family: 'Poppins', sans-serif;
+  text-align: center;
+  width: 100%;
 }
 
 .common-holdings-badge {
@@ -111,11 +124,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 0.81rem;
+  margin: 0 auto;
   padding: 8.1px;
   box-shadow: 0 8.1px 16.2px rgba(0, 194, 194, 0.25);
   position: relative;
   z-index: 10;
+  text-align: center;
 }
 
 .common-holdings-badge span {
@@ -124,6 +138,7 @@
   line-height: 1;
   margin-bottom: 0.405rem;
   font-family: 'Poppins', sans-serif;
+  text-align: center;
 }
 
 .common-holdings-badge p {
@@ -184,6 +199,7 @@
 
 .fund1-weight, .fund2-weight {
   flex: 1;
+  text-align: center;
 }
 
 .sector {
@@ -272,6 +288,20 @@
   .th, .td {
     padding: 0.648rem 0.405rem;
   }
+  
+  .holdings-badge {
+    width: 70px;
+    height: 70px;
+    padding: 0.6rem 0.9rem;
+  }
+  
+  .holdings-badge span {
+    font-size: 1.4rem;
+  }
+  
+  .holdings-badge p {
+    font-size: 0.65rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -317,6 +347,20 @@
   .new-comparison-btn {
     padding: 0.648rem 0.972rem;
     font-size: 0.81rem;
+  }
+  
+  .holdings-badge {
+    width: 60px;
+    height: 60px;
+    padding: 0.5rem 0.8rem;
+  }
+  
+  .holdings-badge span {
+    font-size: 1.2rem;
+  }
+  
+  .holdings-badge p {
+    font-size: 0.6rem;
   }
 }
 

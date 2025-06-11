@@ -23,6 +23,12 @@
   backdrop-filter: blur(5px);
 }
 
+.header-content {
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+}
+
 /* Improved responsive styles */
 @media (max-width: 992px) {
   .header {
